@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    .container{
+        text-align: center;
+        margin-top: 150px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Login</h1><br>
+        <input type="email" id="Email1" placeholder="email"><br><br>
+        <input type="password" id="password1" placeholder="password"><br><br>
+        <button id="btn">Submit</button><br><br>
+        <a href="./singup.html">Sign Up ?</a>
+      </div>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrueC5ZyxvYwTd821Jh2FjZgymb_F8EPQ",
+      authDomain: "signup-61bb8.firebaseapp.com",
+      projectId: "signup-61bb8",
+      storageBucket: "signup-61bb8.appspot.com",
+      messagingSenderId: "1063608895434",
+      appId: "1:1063608895434:web:42bb4bf9bade6326623133"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+
+    document.getElementById("btn").addEventListener('click', () => {
+      alert("HELLO")
+      // const auth = getAuth();
+      var email1 = document.getElementById("Email1").value;
+      var password1 = document.getElementById("password1").value;
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/auth.user
+          const uid = user.uid;
+          // window.location.href = "./welcome.html"
+
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+    })
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</body>
+</html>
